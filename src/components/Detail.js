@@ -1,14 +1,37 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import db from '../firebase';
 
 function Detail() {
+    const { id } = useParams();
+    const [detailData, setDetailData ] = useState({});
+
+    useEffect(() => {
+        db.collection('movies')
+        .doc(id)
+        .get()
+        .then((doc) => {
+            if (doc.exists) {
+                setDetailData(doc.data());
+            } else {
+                console.log('no such document')
+            }
+        })
+        .catch((error) => {
+            console.log("error getting document", error);
+        });
+    }, [id]);
   return (
     <Container>
         <Background>
-            <img src="https://i0.wp.com/thsindex.org/wp-content/uploads/2023/04/Money-Heist-was-first-released-on-Antena-3-in-Spain-in-2017-Netflix.jpg?fit=1920%2C2560&ssl=1" />
+            {detailData.title && (
+                <img alt= {detailData.title} src= {detailData.backgroundImg} />
+            )}
         </Background>
         <ImageTitle>
-            <img src="https://www.pngmart.com/files/22/Money-Heist-Logo-PNG-Picture.png" />
+        <img alt={detailData.title} src={detailData.titleImg} />
         </ImageTitle>
         <Controls>
             <PlayButton>
@@ -28,11 +51,11 @@ function Detail() {
             </GroupWatchButton>
         </Controls>
         <SubTitle>
-        2017 | Maturity Rating:A | 5 Seasons | Thrillers
+        {detailData.subTitle}
         </SubTitle>
 
         <Description>
-        Eight thieves take hostages and lock themselves in the Royal Mint of Spain as a criminal mastermind manipulates the police to carry out his plan.
+        {detailData.description}
         </Description>
     </Container>
       
@@ -69,6 +92,7 @@ const ImageTitle =styled.div`
     width: 35vw;
     min-width: 200px;
     margin-top: 60px;
+    
 
     img {
         width: 100%;
@@ -80,6 +104,7 @@ const ImageTitle =styled.div`
 const Controls = styled.div`
     display: flex;
     align-items: center;
+    margin-top: 60px;
 
 
 `

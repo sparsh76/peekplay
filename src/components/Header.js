@@ -139,8 +139,21 @@ const DropDown = styled.div`
 //   opacity: 0;
 `
 
-const SignOut = styled.div`
-  position: relative
+const SignOut = styled.a`
+//   position: relative
+
+  cursor: pointer;
+  border: 1px solid #f9f9f9;
+  border-radius: 4px;
+  transition: all 0.2s ease 0s;
+
+  &:hover {
+    background-color: #f9f9f9;
+    color: #FFFFFF;
+    
+    border-color: transparent;
+  }
+
 `
 
 export default Header;
@@ -148,12 +161,20 @@ export default Header;
 
 
 const Nav = styled.nav`
+    
+position: sticky;
+top: 0;
+z-index: 100;
+
     height: 70px;
     background: #090b13;
     display: flex;
     align-items: center;
     padding: 0 36px;
     overflow-x: hidden;
+
+    
+
 `
 
 const Logo= styled.img`
