@@ -1,0 +1,28 @@
+.input-group{
+    display: flex;
+    align-items: center;
+}
+
+.input-group input{
+    position: relative;
+    width: 323px;
+    height: 4vh;
+    border-radius: 16px;
+    border: none;
+    margin-right: 30px;
+}
+.input-group input[type='text']{
+    padding-left: 17px;
+    font-size: 1rem;
+    color: black;
+}
+.input-group input::placeholder{
+    color: rgb(255, 255, 255);
+}
+.input-group input:focus{
+    outline: none;
+}
+#search{
+    position: absolute;
+    margin-left: 290px;
+}

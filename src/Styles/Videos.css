@@ -8,15 +8,17 @@ body{
     justify-content: center;
 }
 .mainBgColor{
-    background-color:#0c1e25;
+    background-image: url("home-background.png");
+    /* background-color:#0c1e25; */
     width: 100%;
 }
 .secondaryBgColor{
-    background-color: #fff;
+    background-image: url("home-background.png");
+    /* background-color: #fff; */
     width: 100%;
 }
 .movies-container img{
-    width: 350px;
+    width: 330px;
     height: 500px;
     margin: 25px 0px 4px 15px;
     border-radius: 18px;

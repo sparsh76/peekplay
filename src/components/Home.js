@@ -62,7 +62,7 @@ function Home() {
     
     
     <Container>
-        {/* <Header /> */}
+        <Header />
         <ImgSlider />
         <Viewers />
         <Recommends />

@@ -80,14 +80,11 @@ function Header() {
               <img src="/images/home-icon.svg" />
               <span>HOME</span>
             </Link>
-            <Link to="/Search">
-              <img src="/images/search-icon.svg" />
-              <span>SEARCH</span>
-            </Link>
-            <Link>
+            
+            {/* <Link>
               <img src="/images/watchlist-icon.svg" />
               <span>WATCHLIST</span>
-            </Link>
+            </Link> */}
             
             <Link
               to="/Movies"

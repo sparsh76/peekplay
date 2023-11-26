@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import db from '../firebase';
+import Header from './Header';
+import Head from './Head';
 
 function Detail() {
     const { id } = useParams();
@@ -24,7 +26,9 @@ function Detail() {
         });
     }, [id]);
   return (
+    
     <Container>
+        
         <Background>
             {detailData.title && (
                 <img alt= {detailData.title} src= {detailData.backgroundImg} />

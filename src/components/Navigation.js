@@ -46,7 +46,7 @@
 //       <Router>
 //         <Switch>
 //         {/* <Route path='/Home' component={Home} /> */}
-//         {/* <Route path='/Movies' component={Movies} /> */}
+//         <Route path='/Movies' component={Movies} />
 //         <Route path='/Trendings' component={Trendings} />
 //         {/* <Route path='/Series' component={Series} /> */}
 //         {/* <Route path='/Detail/:id' component={Detail} /> */}
