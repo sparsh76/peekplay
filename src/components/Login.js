@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import Header from './Header'
 
 function Login() {
   return (
     <Container>
+        <Header />
         <CTA>
             <CTALogoOne src="/images/cta-logo-one.svg" />
             <SignUp>SIGN UP</SignUp>

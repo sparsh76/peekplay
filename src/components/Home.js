@@ -11,8 +11,10 @@ import db from "../firebase"
 import { setMovies } from "../features/movie/movieSlice";
 import { selectUserName } from '../features/user/userSlice'
 import Recommends from './Recommends'
+import Header from './Header'
 
 function Home() {
+  
 
   const dispatch = useDispatch();
   const userName = useSelector(selectUserName)
@@ -57,7 +59,10 @@ function Home() {
 
 
   return (
+    
+    
     <Container>
+        {/* <Header /> */}
         <ImgSlider />
         <Viewers />
         <Recommends />
