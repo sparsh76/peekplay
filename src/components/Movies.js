@@ -6,11 +6,11 @@ import {AiOutlineClose} from 'react-icons/ai'
 import '../Styles/Videos.css'
 import marvel from './noimage.jpg'
 // import Header from './Header';
-import Head from './Head';
 import axios from 'axios';
 
 import { Container } from './Head';
-import Header from './Header';
+
+import TrailerMovies from '../Trailers/TrailerMovies';
 // import Navigation from './Navigation';
 
 // import {Container} from './Navigation'
@@ -37,18 +37,9 @@ function Movies() {
         query: input
         }
       })
-    
-
     const results = data.data.results
     setMoviesList(results)
     }
-
-    // const getMovie = ()=> {
-    //     fetch("https://api.themoviedb.org/3/discover/movie?api_key=20ba8847d12768540aeda18f813b6351")
-    //     .then(res => res.json())
-    //     .then(json =>setMoviesList(json.results))
-        
-    // }
     useEffect(()=>{
       setTimeout(() =>{
         getMovie()
@@ -59,18 +50,8 @@ function Movies() {
       setTrailer(!trailer)
     }
   return (
-    
-
-    
     <Fragment>
-      
-      
-    
-
-      {/* <div className={toggle ? "mainBgColor" : 'secondaryBgColor'}> */}
-
       <div className={toggle ? "mainBgColor" : 'secondaryBgColor'}>
-      
       <div className="movies-container">
         {movieList.map((movie)=>{
             return(
@@ -92,8 +73,9 @@ function Movies() {
             </div>
             </div>
             </Fragment>
-)
+            )
         })}
+        {trailer ? console.log : <TrailerMovies moviesTitle={movieTitle} toggle={toggle}/>}
         <AiOutlineClose id={trailer ? 'Nothing' : 'Exit1'} className={toggle ? 'DarkTheme' : 'LightThemeClose'} fontSize={55} color='#fff' cursor={'pointer'} onClick={() => setTrailer(true)} />
         </div>
         </div>

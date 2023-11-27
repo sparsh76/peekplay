@@ -6,10 +6,12 @@ import '../Styles/Videos.css'
 import marvel from './marvel.png'
 import axios from 'axios';
 import { Container } from './Head';
+import TrailerTrend from '../Trailers/TrailerTrend';
 
 
 function Trendings() {
-  const {toggle} = useContext(Container)
+  const {toggle, inputValue} = useContext(Container)
+  const input = inputValue
     const [trendList, setTrendList] = useState([])
     const [trailer, setTrailer] = useState(true)
     const [trendTitle, setTrendTitle] = useState('')
@@ -20,7 +22,7 @@ function Trendings() {
       const data = await axios.get(`${Api}${TrendsShown}`,{
         params: {
         api_key: '20ba8847d12768540aeda18f813b6351',
-        // query: input
+        query: input
         }
       })
     
@@ -32,7 +34,7 @@ function Trendings() {
       setTimeout(() => {
         Trends()
       }, 100)
-    },[])
+    },[input])
     console.log(trendList)
     const TrendTitle = (trend) =>{
       setTrendTitle(trend.title)
@@ -45,7 +47,7 @@ function Trendings() {
       <div className="movies-container">
         {trendList.map((trend)=>{
             return(
-               <Fragment>
+               <Fragment key={trend.id}>
                 <div id={trailer ? 'container' : 'NoContainer'}>
                 <FaPlay color='#fff' fontSize={20} id={trailer ? "playIcon" : 'hide'} onClick={() => TrendTitle(trend)}/>
                 <img src={trend.poster_path ? `${Images}${trend.poster_path}` : marvel} onClick={() => TrendTitle(trend)}/>
@@ -62,6 +64,7 @@ function Trendings() {
             </Fragment>
 )
         })}
+        {trailer ? console.log : <TrailerTrend trendsTitle={trendTitle} toggle={toggle}/>}
         <AiOutlineClose id={trailer ? 'Nothing' : 'Exit1'} className={toggle ? 'DarkTheme' : 'LightThemeClose'} fontSize={55} color='#fff' cursor={'pointer'} onClick={() => setTrailer(true)} />
         </div>
       

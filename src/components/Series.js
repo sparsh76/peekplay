@@ -3,9 +3,10 @@ import React, { Fragment, useContext, useEffect, useState } from 'react'
 import { FaPlay } from "react-icons/fa";
 import {AiOutlineClose} from 'react-icons/ai'
 import '../Styles/Videos.css'
-import marvel from './marvel.png'
+import marvel from './noimage.jpg'
 import { Container } from './Head';
 import axios from 'axios';
+import TrailerSeries from '../Trailers/TrailerSeries';
 
 
 
@@ -55,7 +56,7 @@ function Series() {
       <div className="movies-container">
         {seriesList.map((shows)=>{
             return(
-               <Fragment key={shows.id}>
+               <Fragment>
                 <div id={trailer ? 'container' : 'NoContainer'}>
                     <FaPlay color='#fff' fontSize={20} id={trailer ? "playIcon" : 'hide'} onClick={() => TvShowTitle(shows)}/>
 
@@ -74,6 +75,7 @@ function Series() {
             </Fragment> 
 )
         })}
+        {trailer ? console.log : <TrailerSeries seriesTitle={title} toggle={toggle}/>}
         <AiOutlineClose id={trailer ? 'Nothing' : 'Exit1'} className={toggle ? 'DarkTheme' : 'LightThemeClose'} fontSize={55} color='#fff' cursor={'pointer'} onClick={() => setTrailer(true)} />
         </div>
       
