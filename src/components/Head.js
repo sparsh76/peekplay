@@ -8,6 +8,7 @@ import Movies from "./Movies";
 import Series from "./Series";
 import Home from "./Home";
 import Trendings from "./Trendings";
+import Pricing from "./Pricing";
 
 export const Container = React.createContext()
 
@@ -46,6 +47,10 @@ function Head() {
             <img src="/images/original-icon.svg" />
               <span>TRENDING</span>
             </Link>
+            <Link to="/Pricing">
+            <img src="/images/original-icon.svg" />
+              <span>SUBSCRIPTION</span>
+            </Link>
           </NavMenu>
 
           <div className="input-group">
@@ -65,6 +70,7 @@ function Head() {
          <Route path='/Movies' component={Movies} />
          <Route path='/Trendings' component={Trendings} />
          <Route path='/Series' component={Series} />
+         <Route path='/Pricing' component={Pricing} />
          </Switch>
        </Router>
     </Fragment>

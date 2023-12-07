@@ -101,6 +101,10 @@ function Header() {
             <img src="/images/original-icon.svg" />
               <span>TRENDING</span>
             </Link>
+            <Link to="/Pricing">
+            <img src="/images/subscribe.png" />
+              <span>SUBSCRIPTION</span>
+            </Link>
           </NavMenu>
 
           {/* <div>
